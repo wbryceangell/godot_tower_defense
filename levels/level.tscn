@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://csgey8qxilf2d"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_hk03b"]
+[ext_resource type="Texture2D" uid="uid://d2nh4gp0c03oi" path="res://icon.svg" id="2_roqci"]
+
+[sub_resource type="Curve2D" id="Curve2D_u0qta"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 240, 0, 0, 0, 0, 0, 240, 720)
+}
+point_count = 2
+
+[node name="Level" type="Node"]
+script = ExtResource("1_hk03b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47788, 0.47788, 0.47788, 1)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_u0qta")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(240, 0)
+rotation = 1.5708
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 30.0
+default_color = Color(1, 0.592157, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_roqci")
