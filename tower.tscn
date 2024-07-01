@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0awfffr5s53o"]
+
+[ext_resource type="Texture2D" uid="uid://d2nh4gp0c03oi" path="res://icon.svg" id="1_830i2"]
+[ext_resource type="Script" path="res://tower.gd" id="1_tn2v2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilouc"]
+radius = 100.0
+
+[node name="Tower" type="Area2D"]
+script = ExtResource("1_tn2v2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_830i2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ilouc")
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(0.309804, 1, 1, 1)
+
+[node name="Timer" type="Timer" parent="."]
