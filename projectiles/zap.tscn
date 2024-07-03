@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg2p7fa0bi5i0"]
+
+[ext_resource type="Script" path="res://projectiles/zap.gd" id="1_w7v2h"]
+
+[node name="Line2D" type="Line2D"]
+default_color = Color(0.309804, 1, 1, 1)
+script = ExtResource("1_w7v2h")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

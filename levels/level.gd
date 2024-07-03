@@ -6,4 +6,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Path2D/PathFollow2D.progress_ratio += delta / 10
-	$Sprite2D.position = $Path2D/PathFollow2D.position
+	$Mob.position = $Path2D/PathFollow2D.position	

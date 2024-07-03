@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbeuvyju476va"]
+[gd_scene load_steps=5 format=3 uid="uid://dbeuvyju476va"]
 
 [ext_resource type="PackedScene" uid="uid://csgey8qxilf2d" path="res://levels/level.tscn" id="1_5dao7"]
+[ext_resource type="Script" path="res://main.gd" id="1_wlbae"]
+[ext_resource type="PackedScene" uid="uid://c0awfffr5s53o" path="res://towers/tower.tscn" id="2_rptq1"]
+[ext_resource type="PackedScene" uid="uid://cg2p7fa0bi5i0" path="res://projectiles/zap.tscn" id="4_ee5gs"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_wlbae")
 
 [node name="Level" parent="." instance=ExtResource("1_5dao7")]
+
+[node name="Tower" parent="." instance=ExtResource("2_rptq1")]
+position = Vector2(312, 320)
+
+[node name="Zap" parent="." instance=ExtResource("4_ee5gs")]
+
+[connection signal="zapping" from="Tower" to="." method="_on_tower_zapping"]
