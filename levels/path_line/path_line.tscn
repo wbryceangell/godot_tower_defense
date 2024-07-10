@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/path_line/path_line.gd" id="1_2twvr"]
 
-[node name="PathLine" type="Node"]
-script = ExtResource("1_2twvr")
-
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D"]
 width = 30.0
 default_color = Color(1, 0.592157, 1, 1)
+script = ExtResource("1_2twvr")

@@ -1,6 +1,11 @@
-extends Node
+extends Area2D
 
-signal zapping
+@export var ball_scene: PackedScene
 
-func _on_body_entered(body: Node2D):
-	zapping.emit(body)
+
+func _on_body_entered(mob: Mob):
+	var ball: Ball = ball_scene.instantiate()
+	
+	call_deferred("add_child", ball)
+
+	ball.set_target(mob)
