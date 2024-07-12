@@ -33,5 +33,6 @@ path = NodePath("../Path2D")
 position = Vector2(312, 320)
 
 [node name="MobTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

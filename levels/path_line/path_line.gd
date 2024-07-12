@@ -1,4 +1,4 @@
-extends Line2D
+class_name PathLine extends Line2D
 
 @export var path : Path2D
 
