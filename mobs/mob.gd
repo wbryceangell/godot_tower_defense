@@ -1,11 +1,17 @@
 class_name Mob extends CharacterBody2D
 
 var path_to_follow: PathFollow2D
-var life = 10
+var lifeBarSizeX
+var life = 10.0
+var damageTaken = 0.0
+
+func _ready():
+	lifeBarSizeX = $LifeBar.size.x
 
 func damage(amount: int):
-	life -= amount
-	if (life <= 0):
+	damageTaken += amount
+	$LifeBar.size.x = lifeBarSizeX * ((life - damageTaken) / life)
+	if (damageTaken >= life):
 		queue_free()
 
 
