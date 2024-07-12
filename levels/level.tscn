@@ -7,9 +7,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_u0qta"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 240, 0, 0, 0, 0, 0, 240, 720)
+"points": PackedVector2Array(0, 0, 0, 0, 240, 0, 0, 0, 0, 0, 240, 360, 0, 0, 720, 360, 240, 720)
 }
-point_count = 2
+point_count = 3
 
 [node name="Level" type="Node"]
 script = ExtResource("1_hk03b")
@@ -25,10 +25,6 @@ color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_u0qta")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(240, 0)
-rotation = 1.5708
 
 [node name="PathLine" parent="." node_paths=PackedStringArray("path") instance=ExtResource("2_0rrd0")]
 path = NodePath("../Path2D")
