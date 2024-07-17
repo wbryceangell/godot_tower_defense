@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://csgey8qxilf2d"]
+[gd_scene load_steps=7 format=3 uid="uid://csgey8qxilf2d"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_hk03b"]
 [ext_resource type="PackedScene" uid="uid://cvo1ytq8u3gde" path="res://levels/path_line/path_line.tscn" id="2_0rrd0"]
 [ext_resource type="PackedScene" uid="uid://bq15cl8f0w6qp" path="res://mobs/mob.tscn" id="3_pebnd"]
 [ext_resource type="PackedScene" uid="uid://c0awfffr5s53o" path="res://towers/tower.tscn" id="4_5xwnm"]
+[ext_resource type="PackedScene" uid="uid://24xen2o2nqq3" path="res://levels/tower_plot/tower_plot.tscn" id="5_1iyt7"]
 
 [sub_resource type="Curve2D" id="Curve2D_u0qta"]
 _data = {
@@ -14,6 +15,7 @@ point_count = 3
 [node name="Level" type="Node"]
 script = ExtResource("1_hk03b")
 mob_scene = ExtResource("3_pebnd")
+tower_scene = ExtResource("4_5xwnm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -28,13 +30,13 @@ curve = SubResource("Curve2D_u0qta")
 
 [node name="PathLine" parent="." node_paths=PackedStringArray("path") instance=ExtResource("2_0rrd0")]
 width = 50.0
-default_color = Color(0.412448, 0.202538, 0, 1)
 path = NodePath("../Path2D")
 
-[node name="Tower" parent="." instance=ExtResource("4_5xwnm")]
-position = Vector2(312, 320)
+[node name="TowerPlot" parent="." instance=ExtResource("5_1iyt7")]
+position = Vector2(312, 328)
 
 [node name="MobTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="clicked" from="TowerPlot" to="." method="_on_tower_plot_clicked"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
