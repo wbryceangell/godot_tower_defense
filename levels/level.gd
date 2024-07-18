@@ -4,10 +4,17 @@ extends Node
 @export var mob_scene: PackedScene
 @export var tower_scene: PackedScene
 
+var life = 20
+
 
 func _ready():
+	_set_life_total(life)
 	_spawn_mob()
 	$MobTimer.start(1)
+	
+	
+func _set_life_total(lifeTotal: int):
+	$LifeTotal.text = String.num_uint64(lifeTotal)
 	
 	
 func _on_mob_timer_timeout():
@@ -21,6 +28,7 @@ func _on_tower_plot_clicked():
 	
 func _spawn_mob():
 	var mob: Mob = mob_scene.instantiate()
+	mob.connect("reached_end", _decrease_life)
 	add_child(mob)
 	mob.follow_path($Path2D)
 	
@@ -30,3 +38,8 @@ func _spawn_tower() -> void:
 	tower.global_position = $TowerPlot.position
 	add_child(tower)
 		
+
+func _decrease_life(amount: int):
+	life -= amount
+	_set_life_total(life)
+	
