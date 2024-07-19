@@ -9,9 +9,7 @@ var life = 20
 
 func _ready():
 	_set_life_total(life)
-	_spawn_mob()
-	$MobTimer.start(1)
-	
+
 	
 func _set_life_total(lifeTotal: int):
 	$LifeTotal.text = String.num_uint64(lifeTotal)
@@ -42,4 +40,10 @@ func _spawn_tower() -> void:
 func _decrease_life(amount: int):
 	life -= amount
 	_set_life_total(life)
+	
+
+func _on_start_button_pressed():
+	$StartButton.hide()
+	_spawn_mob()
+	$MobTimer.start(1)
 	

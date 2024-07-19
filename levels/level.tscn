@@ -50,5 +50,14 @@ offset_right = 72.0
 offset_bottom = 31.08
 label_settings = SubResource("LabelSettings_yd1kx")
 
+[node name="StartButton" type="Button" parent="."]
+offset_left = 336.0
+offset_top = 664.0
+offset_right = 442.0
+offset_bottom = 703.0
+theme_override_font_sizes/font_size = 20
+text = "Start Level"
+
 [connection signal="clicked" from="TowerPlot" to="." method="_on_tower_plot_clicked"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
