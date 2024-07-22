@@ -5,15 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://bq15cl8f0w6qp" path="res://mobs/mob.tscn" id="3_pebnd"]
 [ext_resource type="PackedScene" uid="uid://c0awfffr5s53o" path="res://towers/tower.tscn" id="4_5xwnm"]
 [ext_resource type="PackedScene" uid="uid://24xen2o2nqq3" path="res://levels/tower_plot/tower_plot.tscn" id="5_1iyt7"]
+[ext_resource type="PackedScene" uid="uid://bngycvlhi4oa2" path="res://levels/hud.tscn" id="6_7ngf0"]
 
 [sub_resource type="Curve2D" id="Curve2D_u0qta"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 240, 0, 0, 0, 0, 0, 240, 360, 0, 0, 720, 360, 240, 720)
 }
 point_count = 3
-
-[sub_resource type="LabelSettings" id="LabelSettings_yd1kx"]
-font_size = 30
 
 [node name="Level" type="Node"]
 script = ExtResource("1_hk03b")
@@ -41,23 +39,8 @@ position = Vector2(312, 328)
 [node name="MobTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="LifeTotal" type="Label" parent="."]
-anchors_preset = -1
-anchor_bottom = 0.011
-offset_left = 32.0
-offset_top = 16.0
-offset_right = 72.0
-offset_bottom = 31.08
-label_settings = SubResource("LabelSettings_yd1kx")
-
-[node name="StartButton" type="Button" parent="."]
-offset_left = 336.0
-offset_top = 664.0
-offset_right = 442.0
-offset_bottom = 703.0
-theme_override_font_sizes/font_size = 20
-text = "Start Level"
+[node name="Hud" parent="." instance=ExtResource("6_7ngf0")]
 
 [connection signal="clicked" from="TowerPlot" to="." method="_on_tower_plot_clicked"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="start_level" from="Hud" to="." method="_on_hud_start_level"]
