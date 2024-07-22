@@ -5,6 +5,10 @@ var damageAmount = 2
 var speed = 150
 
 func _process(delta):
+	if (target == null):
+		queue_free()
+		return
+	
 	global_position = global_position.move_toward(target.global_position, delta * speed)
 	
 		

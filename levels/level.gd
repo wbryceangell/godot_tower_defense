@@ -8,15 +8,12 @@ var life = 20
 
 
 func _ready():
-	_set_life_total(life)
+	$Hud.set_life_total(life)
 
-	
-func _set_life_total(lifeTotal: int):
-	$LifeTotal.text = String.num_uint64(lifeTotal)
-	
 	
 func _on_mob_timer_timeout():
 	_spawn_mob()
+	$MobTimer.start(1)
 	
 	
 func _on_tower_plot_clicked():
@@ -38,12 +35,30 @@ func _spawn_tower() -> void:
 		
 
 func _decrease_life(amount: int):
-	life -= amount
-	_set_life_total(life)
+	if (life - amount <= 0):
+		life = 0
+	else:
+		life -= amount 
+		
+	$Hud.set_life_total(life)
+	
+	if (life == 0):
+		_lose_level()
+		
+	
+func _lose_level():
+	$MobTimer.stop()
+	get_tree().call_group("mobs", "queue_free")
+	get_tree().call_group("towers", "queue_free")
+	$TowerPlot.enable_clicking()
+	$Hud.set_message("You Lost!")
+	$Hud.show_message()
+	$Hud.show_start_button()
 	
 
-func _on_start_button_pressed():
-	$StartButton.hide()
+func _on_hud_start_level():
+	life = 20
+	$Hud.set_life_total(life)
+	$Hud.hide_message()
 	_spawn_mob()
 	$MobTimer.start(1)
-	

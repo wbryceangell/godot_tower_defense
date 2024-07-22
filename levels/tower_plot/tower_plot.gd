@@ -9,4 +9,8 @@ func _on_button_pressed():
 
 func disable_clicking():
 	$Button.disabled = true
+	
+
+func enable_clicking():
+	$Button.disabled = false
 

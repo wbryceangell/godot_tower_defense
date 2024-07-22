@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bngycvlhi4oa2"]
+
+[ext_resource type="Script" path="res://levels/hud.gd" id="1_87050"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8nq87"]
+font_size = 30
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_87050")
+
+[node name="LifeTotal" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.011
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 31.08
+label_settings = SubResource("LabelSettings_8nq87")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 664.0
+offset_right = 442.0
+offset_bottom = 703.0
+theme_override_font_sizes/font_size = 20
+text = "Start Level"
+
+[node name="Message" type="Label" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 16.0
+offset_right = 448.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 20
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
