@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/tower_plot/tower_plot.gd" id="1_dc0u5"]
 
-[node name="TowerPlot" type="Node2D"]
+[node name="TowerPlot" type="Node2D" groups=["tower_plots"]]
 script = ExtResource("1_dc0u5")
 
 [node name="ColorRect" type="ColorRect" parent="."]

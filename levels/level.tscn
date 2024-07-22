@@ -41,6 +41,10 @@ one_shot = true
 
 [node name="Hud" parent="." instance=ExtResource("6_7ngf0")]
 
+[node name="TowerPlot2" parent="." instance=ExtResource("5_1iyt7")]
+position = Vector2(168, 176)
+
 [connection signal="clicked" from="TowerPlot" to="." method="_on_tower_plot_clicked"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="start_level" from="Hud" to="." method="_on_hud_start_level"]
+[connection signal="clicked" from="TowerPlot2" to="." method="_on_tower_plot_2_clicked"]
