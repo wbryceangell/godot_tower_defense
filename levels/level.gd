@@ -18,7 +18,12 @@ func _on_mob_timer_timeout():
 	
 func _on_tower_plot_clicked():
 	$TowerPlot.disable_clicking()
-	_spawn_tower()
+	_spawn_tower($TowerPlot)
+	
+
+func _on_tower_plot_2_clicked():
+	$TowerPlot2.disable_clicking()
+	_spawn_tower($TowerPlot2)
 	
 	
 func _spawn_mob():
@@ -28,9 +33,9 @@ func _spawn_mob():
 	mob.follow_path($Path2D)
 	
 	
-func _spawn_tower() -> void:
+func _spawn_tower(plot: TowerPlot) -> void:
 	var tower: Tower = tower_scene.instantiate()
-	tower.global_position = $TowerPlot.position
+	tower.global_position = plot.position
 	add_child(tower)
 		
 
@@ -50,7 +55,7 @@ func _lose_level():
 	$MobTimer.stop()
 	get_tree().call_group("mobs", "queue_free")
 	get_tree().call_group("towers", "queue_free")
-	$TowerPlot.enable_clicking()
+	get_tree().call_group("tower_plots", "enable_clicking")
 	$Hud.set_message("You Lost!")
 	$Hud.show_message()
 	$Hud.show_start_button()
@@ -62,3 +67,4 @@ func _on_hud_start_level():
 	$Hud.hide_message()
 	_spawn_mob()
 	$MobTimer.start(1)
+
