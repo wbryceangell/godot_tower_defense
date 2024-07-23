@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bngycvlhi4oa2"]
 
-[ext_resource type="Script" path="res://levels/hud.gd" id="1_87050"]
+[ext_resource type="Script" path="res://levels/hud/hud.gd" id="1_qwo6m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8nq87"]
 font_size = 30
@@ -8,7 +8,7 @@ font_size = 30
 [node name="Hud" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_87050")
+script = ExtResource("1_qwo6m")
 
 [node name="LifeTotal" type="Label" parent="."]
 layout_mode = 1
