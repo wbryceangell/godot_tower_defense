@@ -13,4 +13,4 @@ func _shoot(mob: Mob):
 	var ball: Ball = ball_scene.instantiate()
 	ball.target = mob
 	add_child(ball)
-	
+	$ShotSound.play()

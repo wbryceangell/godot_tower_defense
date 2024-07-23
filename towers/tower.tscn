@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0awfffr5s53o"]
+[gd_scene load_steps=6 format=3 uid="uid://c0awfffr5s53o"]
 
 [ext_resource type="Texture2D" uid="uid://d2nh4gp0c03oi" path="res://icon.svg" id="1_830i2"]
 [ext_resource type="Script" path="res://towers/tower.gd" id="1_dssop"]
 [ext_resource type="PackedScene" uid="uid://cfjbmwa7mb4sc" path="res://projectiles/ball/ball.tscn" id="2_qco3m"]
+[ext_resource type="AudioStream" uid="uid://djv273i67xicm" path="res://towers/tower_shot.wav" id="4_4yeo3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilouc"]
 radius = 100.0
@@ -21,3 +22,6 @@ shape = SubResource("CircleShape2D_ilouc")
 
 [node name="ShotTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ShotSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4yeo3")
