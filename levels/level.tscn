@@ -30,7 +30,6 @@ color = Color(0.27463, 0.74703, 0.133393, 1)
 curve = SubResource("Curve2D_u0qta")
 
 [node name="PathLine" parent="." node_paths=PackedStringArray("path") instance=ExtResource("2_0rrd0")]
-width = 50.0
 path = NodePath("../Path2D")
 
 [node name="TowerPlot" parent="." instance=ExtResource("5_1iyt7")]
