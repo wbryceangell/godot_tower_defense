@@ -30,11 +30,6 @@ rotation = 1.5708
 collision_layer = 0
 script = ExtResource("1_amaop")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(5.96046e-08, -0.400001)
-scale = Vector2(0.015625, 0.0160156)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0350586, 0.0350586)
 sprite_frames = SubResource("SpriteFrames_5h0ou")
